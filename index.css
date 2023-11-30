@@ -30,6 +30,10 @@ body {
   animation: rotateScene var(--rotateSpeed) infinite linear;
 }
 
+.paused {
+  animation-play-state: paused;
+}
+
 .floor {
   position: absolute;
   top: 0.5em;
