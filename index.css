@@ -170,22 +170,58 @@ body {
 }
 
 .shadow-pos-1 {
-  transform: translate(calc(-50%), calc(-50% + 3em));
+  --actual-angle: calc(0 * 360deg / var(--photos));
+
+  transform: translate(
+      calc(-50% + calc(var(--radius) * sin(var(--actual-angle)))),
+      calc(-50% + calc(var(--radius) * cos(var(--actual-angle))))
+    )
+    rotateZ(calc(-1 * var(--actual-angle)));
 }
 .shadow-pos-2 {
-  transform: translate(calc(-50% + 2.598em), calc(-50% + 1.5em)) rotateZ(30deg);
+  --actual-angle: calc(1 * 360deg / var(--photos));
+
+  transform: translate(
+      calc(-50% + calc(var(--radius) * sin(var(--actual-angle)))),
+      calc(-50% + calc(var(--radius) * cos(var(--actual-angle))))
+    )
+    rotateZ(calc(-1 * var(--actual-angle)));
 }
 .shadow-pos-3 {
-  transform: translate(calc(-50% + 2.598em), calc(-50% - 1.5em)) rotateZ(60deg);
+  --actual-angle: calc(2 * 360deg / var(--photos));
+
+  transform: translate(
+      calc(-50% + calc(var(--radius) * sin(var(--actual-angle)))),
+      calc(-50% + calc(var(--radius) * cos(var(--actual-angle))))
+    )
+    rotateZ(calc(-1 * var(--actual-angle)));
 }
 .shadow-pos-4 {
-  transform: translate(calc(-50%), calc(-50% - 3em)) rotateZ(90deg);
+  --actual-angle: calc(3 * 360deg / var(--photos));
+
+  transform: translate(
+      calc(-50% + calc(var(--radius) * sin(var(--actual-angle)))),
+      calc(-50% + calc(var(--radius) * cos(var(--actual-angle))))
+    )
+    rotateZ(calc(-1 * var(--actual-angle)));
 }
 .shadow-pos-5 {
-  transform: translate(calc(-50% - 2.598em), calc(-50% - 1.5em)) rotateZ(120deg);
+  --actual-angle: calc(4 * 360deg / var(--photos));
+
+  transform: translate(
+      calc(-50% + calc(var(--radius) * sin(var(--actual-angle)))),
+      calc(-50% + calc(var(--radius) * cos(var(--actual-angle))))
+    )
+    rotateZ(calc(-1 * var(--actual-angle)));
 }
 .shadow-pos-6 {
-  transform: translate(calc(-50% - 2.598em), calc(-50% + 1.5em)) rotateZ(150deg);
+  --actual-angle: calc(5 * 360deg / var(--photos));
+
+  transform: translate(
+      calc(-50% + calc(var(--radius) * sin(var(--actual-angle)))),
+      calc(-50% + calc(var(--radius) * cos(var(--actual-angle))))
+    )
+    rotateZ(calc(-1 * var(--actual-angle)));
 }
 
 @keyframes rotateScene {
