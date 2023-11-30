@@ -10,6 +10,10 @@ body {
   --bounceSpeed: 1.5s;
   --letterColor: #0ff7;
   --frameImg: url(frame.jpg);
+
+  --photo-incline: 20deg;
+  --radius: 3em;
+  --photos: 6;
 }
 
 .animation {
@@ -83,9 +87,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  border-radius: 50%;
   width: 1em;
   height: 1em;
+  background-color: #000;
+  /* background-image: radial-gradient(#000, #0000 40%); */
 }
 
 .object-back {
@@ -101,47 +106,86 @@ body {
   border: 15px solid transparent;
   border-image: var(--frameImg) 100;
 }
+
+/* fancy math to calculate position of each photo based on number of photoes and radius */
 .pos-1 {
-  transform: translate(-50%) translate3d(0, 0, 3em) rotateX(20deg);
+  --actual-angle: calc(0 * 360deg / var(--photos));
+  transform: translate3d(
+      calc(var(--radius) * sin(var(--actual-angle))),
+      0,
+      calc(var(--radius) * cos(var(--actual-angle)))
+    )
+    translate(-50%) rotateY(calc(var(--actual-angle)))
+    rotateX(var(--photo-incline));
 }
 .pos-2 {
-  transform: translate(-50%) translate3d(2.598em, 0, 1.5em) rotateY(60deg)
-    rotateX(20deg);
+  --actual-angle: calc(1 * 360deg / var(--photos));
+  transform: translate3d(
+      calc(var(--radius) * sin(var(--actual-angle))),
+      0,
+      calc(var(--radius) * cos(var(--actual-angle)))
+    )
+    translate(-50%) rotateY(calc(var(--actual-angle)))
+    rotateX(var(--photo-incline));
 }
 .pos-3 {
-  transform: translate(-50%) translate3d(2.598em, 0, -1.5em) rotateY(120deg)
-    rotateX(20deg);
+  --actual-angle: calc(2 * 360deg / var(--photos));
+  transform: translate3d(
+      calc(var(--radius) * sin(var(--actual-angle))),
+      0,
+      calc(var(--radius) * cos(var(--actual-angle)))
+    )
+    translate(-50%) rotateY(calc(var(--actual-angle)))
+    rotateX(var(--photo-incline));
 }
 .pos-4 {
-  transform: translate(-50%) translate3d(0, 0, -3em) rotateY(180deg)
-    rotateX(20deg);
+  --actual-angle: calc(3 * 360deg / var(--photos));
+  transform: translate3d(
+      calc(var(--radius) * sin(var(--actual-angle))),
+      0,
+      calc(var(--radius) * cos(var(--actual-angle)))
+    )
+    translate(-50%) rotateY(calc(var(--actual-angle)))
+    rotateX(var(--photo-incline));
 }
 .pos-5 {
-  transform: translate(-50%) translate3d(-2.598em, 0, -1.5em) rotateY(240deg)
-    rotateX(20deg);
+  --actual-angle: calc(4 * 360deg / var(--photos));
+  transform: translate3d(
+      calc(var(--radius) * sin(var(--actual-angle))),
+      0,
+      calc(var(--radius) * cos(var(--actual-angle)))
+    )
+    translate(-50%) rotateY(calc(var(--actual-angle)))
+    rotateX(var(--photo-incline));
 }
 .pos-6 {
-  transform: translate(-50%) translate3d(-2.598em, 0, 1.5em) rotateY(300deg)
-    rotateX(20deg);
+  --actual-angle: calc(5 * 360deg / var(--photos));
+  transform: translate3d(
+      calc(var(--radius) * sin(var(--actual-angle))),
+      0,
+      calc(var(--radius) * cos(var(--actual-angle)))
+    )
+    translate(-50%) rotateY(calc(var(--actual-angle)))
+    rotateX(var(--photo-incline));
 }
 
 .shadow-pos-1 {
   transform: translate(calc(-50%), calc(-50% + 3em));
 }
 .shadow-pos-2 {
-  transform: translate(calc(-50% + 2.598em), calc(-50% + 1.5em));
+  transform: translate(calc(-50% + 2.598em), calc(-50% + 1.5em)) rotateZ(30deg);
 }
 .shadow-pos-3 {
-  transform: translate(calc(-50% + 2.598em), calc(-50% - 1.5em));
+  transform: translate(calc(-50% + 2.598em), calc(-50% - 1.5em)) rotateZ(60deg);
 }
 .shadow-pos-4 {
-  transform: translate(calc(-50%), calc(-50% - 3em));
+  transform: translate(calc(-50%), calc(-50% - 3em)) rotateZ(90deg);
 }
 .shadow-pos-5 {
-  transform: translate(calc(-50% - 2.598em), calc(-50% - 1.5em));
+  transform: translate(calc(-50% - 2.598em), calc(-50% - 1.5em)) rotateZ(120deg);
 }
 .shadow-pos-6 {
-  transform: translate(calc(-50% - 2.598em), calc(-50% + 1.5em));
+  transform: translate(calc(-50% - 2.598em), calc(-50% + 1.5em)) rotateZ(150deg);
 }
 
 @keyframes rotateScene {
