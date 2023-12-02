@@ -1,0 +1,56 @@
+.ball {
+  position: absolute;
+  width: 4em;
+  height: 7.7em;
+  /* left: -0.5em; */
+  /* border-radius: 50%; */
+  /* background-color: white; */
+  transform: translate(-50%, -50%);
+  background-image: radial-gradient(circle at top, white, #000);
+  background-image: url("../images/disc.png");
+  animation: rotateBall var(--rotateSpeed) infinite linear;
+  /* bounceBall var(--bounceSpeed) infinite ease-out, */
+}
+
+.ball-shadow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  background-image: radial-gradient(#000, #0000 40%);
+  animation: ballShadow var(--bounceSpeed) infinite ease-out;
+}
+
+@keyframes rotateBall {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes bounceBall {
+  0%,
+  100% {
+    bottom: -0.5em;
+  }
+  50% {
+    bottom: 2em;
+    animation-timing-function: ease-in;
+  }
+}
+
+@keyframes ballShadow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+    animation-timing-function: ease-in;
+  }
+}
